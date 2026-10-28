@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover premium wigs and luxurious hair extensions at LUXE Hair Store.">
+  <title>LUXE Hair Store | Luxury Hair, Your Way</title>
+
+  <style>
+    :root {
+      --black: #151411;
+      --cream: #f8f5ef;
+      --white: #fffefa;
+      --gold: #b69a65;
+      --muted: #77736b;
+      --border: #e9e3d8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .announcement {
+      background: var(--black);
+      color: #f8f5ef;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 19px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: bold;
+      letter-spacing: 5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .cart-button {
+      background: transparent;
+      border: 1px solid var(--black);
+      padding: 10px 15px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      min-height: 520px;
+      background:
+        linear-gradient(90deg, rgba(15, 14, 12, .91), rgba(15, 14, 12, .25)),
+        url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85")
+        center 35% / cover;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 75px 7%;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(44px, 7vw, 76px);
+      line-height: 1.08;
+      font-weight: normal;
+      max-width: 650px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: #e5e0d7;
+      max-width: 420px;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .primary-button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      border: 1px solid var(--gold);
+      padding: 14px 25px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .primary-button:hover {
+      background: #d0b681;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+      padding: 23px 5%;
+      text-align: center;
+      gap: 15px;
+    }
+
+    .benefit {
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .section {
+      max-width: 1200px;
+      padding: 75px 5%;
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 4vw, 43px);
+      font-weight: normal;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .filter-button {
+      padding: 9px 17px;
+      background: transparent;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .filter-button.active,
+    .filter-button:hover {
+      background: var(--black);
+      color: white;
+      border-color: var(--black);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      min-width: 0;
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+      aspect-ratio: 3 / 4;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.04);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--white);
+      padding: 5px 9px;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .product-info {
+      padding: 15px 2px;
+    }
+
+    .product-info h3 {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      font-weight: normal;
+      margin-bottom: 4px;
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 9px;
+    }
+
+    .product-price {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 13px;
+    }
+
+    .add-button {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--black);
+      padding: 11px 8px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .2s;
+    }
+
+    .add-button:hover {
+      background: var(--black);
+      color: white;
+    }
+
+    .story {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .story-image {
+      min-height: 390px;
+      background:
+        url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85")
+        center 30% / cover;
+    }
+
+    .story-content {
+      padding: 55px clamp(25px, 7vw, 85px);
+    }
+
+    .story-content h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .story-content p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .newsletter {
+      text-align: center;
+      background: var(--black);
+      color: white;
+      padding: 65px 20px;
+    }
+
+    .newsletter h2 {
+      font-family: Georgia, serif;
+      font-size: 34px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .newsletter p {
+      color: #d2cdc3;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .newsletter form {
+      display: flex;
+      max-width: 440px;
+      margin: auto;
+      gap: 8px;
+    }
+
+    .newsletter input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #555;
+      background: #24231f;
+      color: white;
+    }
+
+    .newsletter button {
+      border: 0;
+      background: var(--gold);
+      padding: 12px 17px;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      padding: 35px 5%;
+      text-align: center;
+      background: #100f0d;
+      color: #c5c0b6;
+      font-size: 11px;
+    }
+
+    footer .logo {
+      color: white;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 30;
+    }
+
+    .cart-overlay.open {
+      display: block;
+    }
+
+    .cart-panel {
+      position: fixed;
+      z-index: 31;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: min(420px, 100%);
+      background: var(--white);
+      padding: 25px;
+      transform: translateX(105%);
+      transition: transform .25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+    }
+
+    .cart-header h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 27px;
+    }
+
+    .close-cart {
+      border: 0;
+      background: transparent;
+      font-size: 28px;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 0;
+    }
+
+    .empty-cart {
+      color: var(--muted);
+      text-align: center;
+      padding: 45px 10px;
+      font-size: 13px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 65px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item img {
+      width: 65px;
+      height: 78px;
+      object-fit: cover;
+    }
+
+    .cart-item h3 {
+      font-family: Georgia, serif;
+      font-size: 15px;
+      font-weight: normal;
+    }
+
+    .cart-item p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .quantity-controls button {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .remove-button {
+      border: 0;
+      background: transparent;
+      color: #8b3434;
+      font-size: 11px;
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .cart-note {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+
+    .checkout-button {
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      background: var(--black);
+      color: white;
+      letter-spacing: 2px;
+      font-size: 11px;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 50;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--black);
+      color: white;
+      padding: 12px 20px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+
+    @media (max-width: 850px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 14px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .story-content h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .navbar {
+        padding: 15px 4%;
+        gap: 8px;
+      }
+
+      .logo {
+        font-size: 21px;
+        letter-spacing: 3px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .cart-button {
+        padding: 9px 10px;
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: 440px;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding: 55px 7%;
+      }
+
+      .hero h1 {
+        font-size: 47px;
+      }
+
+      .benefits {
+        padding: 18px 8px;
+        gap: 8px;
+      }
+
+      .benefit,
+      .benefit strong {
+        font-size: 9px;
+      }
+
+      .section {
+        padding: 55px 4%;
+      }
+
+      .product-info h3 {
+        font-size: 16px;
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .story-image {
+        min-height: 310px;
+      }
+
+      .story-content {
+        padding: 40px 7%;
+      }
+
+      .newsletter h2 {
+        font-size: 28px;
+      }
+
+      .newsletter form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    LUXURY HAIR. TIMELESS CONFIDENCE. YOUR CROWN, YOUR WAY.
+  </div>
+
+  <header>
+    <div class="navbar">
+      <a class="logo" href="#">LUXE<span>.</span></a>
+
+      <nav>
+        <a href="#home">HOME</a>
+        <a href="#shop">SHOP</a>
+        <a href="#about">OUR STORY</a>
+      </nav>
+
+      <button class="cart-button" id="openCart" aria-label="Open shopping cart">
+        BAG (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">The LUXE Collection</p>
+        <h1>Your Hair.<br>Your Power.</h1>
+        <p>
+          Discover beautiful wigs and premium hair extensions
+          designed to make every day feel extraordinary.
+        </p>
+        <a class="primary-button" href="#shop">Explore the collection</a>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Store benefits">
+      <div class="benefit">
+        <strong>PREMIUM QUALITY</strong>
+        Hair chosen with care
+      </div>
+      <div class="benefit">
+        <strong>YOUR SIGNATURE STYLE</strong>
+        Beauty without limits
+      </div>
+      <div class="benefit">
+        <strong>MADE FOR YOU</strong>
+        Confidence in every strand
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="section-heading">
+        <p class="eyebrow">Find your signature look</p>
+        <h2>The Hair Collection</h2>
+        <p>Explore styles for every mood and every moment.</p>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter-button active" data-filter="all">ALL HAIR</button>
+        <button class="filter-button" data-filter="straight">STRAIGHT</button>
+        <button class="filter-button" data-filter="wave">BODY WAVE</button>
+        <button class="filter-button" data-filter="curly">CURLY</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="story" id="about">
+      <div class="story-image" role="img" aria-label="Beauty portrait"></div>
+      <div class="story-content">
+        <p class="eyebrow">The LUXE philosophy</p>
+        <h2>Beauty is personal.<br>Make it yours.</h2>
+        <p>
+          At LUXE, we believe your hair should express who you are.
+          From sleek everyday styles to glamorous statement looks,
+          find the hair that feels like you.
+        </p>
+        <a href="#shop" class="primary-button">Find your look</a>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <p class="eyebrow">A little LUXE in your inbox</p>
+      <h2>Stay in the know.</h2>
+      <p>Be the first to hear about new styles and special offers.</p>
+
+      <form id="newsletterForm">
+        <input
+          type="email"
+          id="newsletterEmail"
+          placeholder="Enter your email address"
+          aria-label="Email address"
+          required
+        >
+        <button type="submit">SIGN ME UP</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">LUXE<span>.</span></div>
+    <p>Luxury hair. Timeless confidence.</p>
+    <p>© <span id="year"></span> LUXE Hair Store. Practice storefront.</p>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside
+    class="cart-panel"
+    id="cartPanel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Shopping cart"
+    aria-hidden="true"
+  >
+    <div class="cart-header">
+      <h2>Your Shopping Bag</h2>
+      <button class="close-cart" id="closeCart" aria-label="Close cart">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div class="subtotal">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00 CAD</strong>
+      </div>
+      <p class="cart-note">Shipping and taxes are not included.</p>
+      <button class="checkout-button" id="checkoutButton">
+        CONTINUE TO CHECKOUT
+      </button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Sample products and prices for this practice storefront.
+    const products = [
+      {
+        id: 1,
+        name: "Silk Straight",
+        description: "Sleek, smooth and timeless",
+        price: 189,
+        category: "straight",
+        tag: "Bestseller",
+        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 2,
+        name: "Body Wave Muse",
+        description: "Soft waves with natural movement",
+        price: 219,
+        category: "wave",
+        tag: "Popular",
+        image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 3,
+        name: "The Classic Straight",
+        description: "A polished everyday look",
+        price: 169,
+        category: "straight",
+        tag: "",
+        image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: 4,
+        name: "Curly Muse",
+        description: "Defined curls, full of life",
+        price: 229,
+        category: "curly",
+        tag: "New",
+        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80"
+      }
+    ];
+
+    let cart = [];
+
+    const productGrid = document.getElementById("productGrid");
+    const cartPanel = document.getElementById("cartPanel");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartSubtotal = document.getElementById("cartSubtotal");
+    const toast = document.getElementById("toast");
+
+    function formatPrice(amount) {
+      return new Intl.NumberFormat("en-CA", {
+        style: "currency",
+        currency: "CAD"
+      }).format(amount);
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2400);
+    }
+
+    function renderProducts(category = "all") {
+      const filteredProducts = category === "all"
+        ? products
+        : products.filter(product => product.category === category);
+
+      productGrid.innerHTML = filteredProducts.map(product => `
+        <article class="product-card">
+          <div class="product-image">
+            <img
+              src="${product.image}"
+              alt="${product.name}"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x800/f8f5ef/151411?text=LUXE+HAIR';"
+            >
+            ${product.tag ? `<span class="product-tag">${product.tag}</span>` : ""}
+          </div>
+          <div class="product-info">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="product-price">${formatPrice(product.price)}</div>
+            <button class="add-button" data-add="${product.id}">
+              ADD TO BAG
+            </button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function addToCart(productId) {
+      const product = products.find(item => item.id === productId);
+      if (!product) return;
+
+      const existingItem = cart.find(item => item.id === productId);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      renderCart();
+      showToast(`${product.name} added to your bag.`);
+    }
+
+    function changeQuantity(productId, amount) {
+      const item = cart.find(product => product.id === productId);
+      if (!item) return;
+
+      item.quantity += amount;
+
+      if (item.quantity <= 0) {
+        cart = cart.filter(product => product.id !== productId);
+      }
+
+      renderCart();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(product => product.id !== productId);
+      renderCart();
+    }
+
+    function renderCart() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+      );
+
+      cartCount.textContent = totalItems;
+      cartSubtotal.textContent = formatPrice(subtotal);
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <p class="empty-cart">
+            Your bag is waiting for something beautiful.
+          </p>
+        `;
+        return;
+      }
+
+      cartItems.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            onerror="this.onerror=null;this.src='https://placehold.co/100x120/f8f5ef/151411?text=LUXE';"
+          >
+          <div>
+            <h3>${item.name}</h3>
+            <p>${formatPrice(item.price)} each</p>
+            <div class="quantity-controls">
+              <button data-minus="${item.id}" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button data-plus="${item.id}" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <button class="remove-button" data-remove="${item.id}">
+            Remove
+          </button>
+        </div>
+      `).join("");
+    }
+
+    function openCart() {
+      cartPanel.classList.add("open");
+      cartOverlay.classList.add("open");
+      cartPanel.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      document.getElementById("closeCart").focus();
+    }
+
+    function closeCart() {
+      cartPanel.classList.remove("open");
+      cartOverlay.classList.remove("open");
+      cartPanel.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      document.getElementById("openCart").focus();
+    }
+
+    // Event delegation: product buttons keep working after filtering.
+    productGrid.addEventListener("click", event => {
+      const button = event.target.closest("[data-add]");
+      if (button) addToCart(Number(button.dataset.add));
+    });
+
+    document.getElementById("filters").addEventListener("click", event => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+
+      document.querySelectorAll(".filter-button").forEach(filter => {
+        filter.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      renderProducts(button.dataset.filter);
+    });
+
+    cartItems.addEventListener("click", event => {
+      const minus = event.target.closest("[data-minus]");
+      const plus = event.target.closest("[data-plus]");
+      const remove = event.target.closest("[data-remove]");
+
+      if (minus) changeQuantity(Number(minus.dataset.minus), -1);
+      if (plus) changeQuantity(Number(plus.dataset.plus), 1);
+      if (remove) removeFromCart(Number(remove.dataset.remove));
+    });
+
+    document.getElementById("openCart").addEventListener("click", openCart);
+    document.getElementById("closeCart").addEventListener("click", closeCart);
+    cartOverlay.addEventListener("click", closeCart);
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && cartPanel.classList.contains("open")) {
+        closeCart();
+      }
+    });
+
+    document.getElementById("checkoutButton").addEventListener("click", () => {
+      if (cart.length === 0) {
+        showToast("Your bag is empty. Add a product first.");
+        return;
+      }
+
+      showToast("Demo checkout only — orders are not being submitted yet.");
+    });
+
+    document.getElementById("newsletterForm").addEventListener("submit", event => {
+      event.preventDefault();
+      showToast("Demo only: email signup is not connected yet.");
+      event.target.reset();
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
